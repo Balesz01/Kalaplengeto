@@ -1,58 +1,237 @@
+/* --- ALAPOK ÉS HÁTTÉR --- */
 body {
-    font-family: Arial;
-    background: #f8f4e6;
+    /* Kockás abrosz / Papír textúra hatás CSS-sel */
+    background-color: #fdf5e6; /* Ódon papír szín */
+    background-image: 
+        linear-gradient(90deg, rgba(200,0,0,0.05) 50%, transparent 50%),
+        linear-gradient(rgba(200,0,0,0.05) 50%, transparent 50%);
+    background-size: 50px 50px; /* Kockás minta mérete */
+    
+    font-family: 'Merriweather', serif; /* Olvasható, de klasszikus */
     margin: 0;
     padding: 0;
+    color: #3e2723; /* Sötétbarna szövegszín a fekete helyett */
 }
 
+/* --- FEJLÉC (A "FADESZKA" TÁBLA) --- */
 header {
-    background: #7fbf7f;
-    padding: 20px;
-    text-align: center;
-    color: white;
+    /* Fa textúra imitálása gradienssel */
+    background: repeating-linear-gradient(
+        45deg,
+        #5d4037,
+        #5d4037 10px,
+        #4e342e 10px,
+        #4e342e 20px
+    );
+    color: #fff8e1;
+    padding: 20px 40px;
+    border-bottom: 8px solid #3e2723;
+    border-top: 8px solid #3e2723;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
 }
 
-header img {
+/* Dekoratív csavarok a fa tábla sarkába (CSS-sel rajzolva) */
+header::before, header::after {
+    content: '●';
+    position: absolute;
+    color: #a1887f; /* Rozsdás szög színe */
+    font-size: 2rem;
+    top: 10px;
+}
+header::before { left: 20px; }
+header::after { right: 20px; }
+
+/* --- LOGÓK ÉS KÉPEK --- */
+.logo-box {
+    flex: 0 0 200px;
+    display: flex;
+    justify-content: center;
+    filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.5));
+}
+
+.side-img {
+    height: 140px;
+    width: auto;
+    border: 5px solid #d7ccc8; /* Nyers keret */
+    border-radius: 50%;
+    background-color: #fff;
+    /* Enyhe szépia hatás a régies érzésért */
+    filter: sepia(0.3);
+    transition: transform 0.3s, filter 0.3s;
+}
+
+.side-img:hover {
+    transform: scale(1.1) rotate(-5deg);
+    filter: sepia(0); /* Ha ráviszed az egeret, kiszínesedik */
+    border-color: #fff;
+}
+
+.center-img {
     height: 80px;
-    margin: 10px;
+    width: auto;
+    border: 3px solid #ffd700;
+    border-radius: 10px;
+    margin-top: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    background: #fff;
+    transform: rotate(2deg); /* Kicsit ferdén álljon, lazábban */
+}
+
+/* --- CÍMSOROK --- */
+.title-box {
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
 }
 
 h1 {
+    font-family: 'Rye', cursive; /* Vadnyugati / Falusi plakát betűtípus */
+    font-size: 3.5rem;
     margin: 0;
+    color: #ffecb3; /* Krém szín */
+    text-shadow: 3px 3px 0px #3e2723; /* Vastag árnyék */
+    letter-spacing: 2px;
+    line-height: 1.1;
+    text-transform: uppercase;
 }
 
-#container {
+.sub-title {
+    font-size: 1.4rem;
+    color: #ffd700; /* Arany */
+    margin-top: 5px;
+    font-style: italic;
+    background-color: rgba(62, 39, 35, 0.8); /* Sötét háttér a szövegnek */
+    padding: 5px 15px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+/* --- FŐ TARTALOM (A PAPÍROS) --- */
+main {
     width: 90%;
-    max-width: 900px;
-    background: white;
-    margin: 30px auto;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #ccc;
+    max-width: 1400px;
+    margin: 40px auto;
+    /* Régi papír hatás */
+    background-color: #fff8e1;
+    border: 1px solid #d7ccc8;
+    border-radius: 5px;
+    
+    /* Dupla keret, mint egy oklevélen */
+    outline: 10px solid #5d4037; 
+    outline-offset: -20px;
+    
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    padding: 40px;
+    position: relative;
 }
 
+/* --- TÁBLÁZAT --- */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 15px;
+    font-size: 1.6rem;
+    margin-top: 10px;
+    border: 2px solid #5d4037;
 }
 
-table, th, td {
-    border: 1px solid #aaa;
+thead {
+    /* Zöld filc hatás vagy sötétzöld tábla */
+    background-color: #33691e; 
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'Rye', cursive;
+    letter-spacing: 1px;
 }
 
 th {
-    background: #e8e8e8;
-    padding: 10px;
+    padding: 20px;
+    border-bottom: 4px solid #1b5e20;
+    text-shadow: 1px 1px 2px black;
 }
 
 td {
-    padding: 8px;
+    padding: 15px;
+    border-bottom: 1px solid #a1887f; /* Halvány barna elválasztó */
     text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
 }
 
+/* Balra igazított név */
+th:nth-child(2), td:nth-child(2) {
+    text-align: left;
+    padding-left: 30px;
+}
+
+td:nth-child(2) {
+    font-size: 1.8rem;
+    color: #bf360c; /* Rozsdavörös név */
+    font-family: 'Rye', serif;
+}
+
+/* Zebra csíkozás helyett "soronkénti" papírhatás */
+tbody tr:nth-child(even) {
+    background-color: rgba(93, 64, 55, 0.05);
+}
+
+tbody tr:hover {
+    background-color: #fff9c4; /* Kiemelés sárgával */
+    cursor: default;
+}
+
+/* --- HELYEZÉSEK JELÖLÉSE (ÉRMÉK) --- */
+.rank-badge {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    font-family: sans-serif; /* Az emoji/szám miatt */
+}
+
+/* 1. Hely - Arany Rozetta */
+tbody tr:nth-child(1) {
+    background-color: #fffde7;
+    border-left: 10px solid #ffd700;
+}
+
+/* --- ADATOK MEGJELENÉSE --- */
+.pontszam {
+    color: #b71c1c; /* Vérvörös */
+    font-size: 1.4em;
+    font-weight: 900;
+}
+
+.idoadat {
+    font-size: 0.7em;
+    color: #5d4037;
+    font-style: italic;
+    display: block;
+    margin-top: 5px;
+}
+
+/* --- LÁBLÉC --- */
 footer {
     text-align: center;
-    margin: 30px 0;
-    color: #777;
+    padding: 30px;
+    background-color: #3e2723;
+    color: #d7ccc8;
+    font-size: 1.1rem;
+    border-top: 5px solid #8d6e63;
+    margin-top: 0; /* A body marginja kezeli */
+    font-family: 'Merriweather', serif;
 }
+
+footer strong { color: #ffd700; }

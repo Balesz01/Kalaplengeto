@@ -2,68 +2,110 @@
 <html lang="hu">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szélesbálási Kalaplengető Verseny</title>
     <link rel="stylesheet" href="style.css">
-    <title>Szélesbálási Fedettpályás Kalaplengető Verseny</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,900;1,400&family=Rye&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header>
-    <h1>Szélesbálási Kalaplengető Verseny</h1>
+    <header>
+        <div class="logo-box">
+            <img src="traktor.jpg" alt="Traktoros Címer" class="side-img">
+        </div>
 
-    <!-- Itt majd valós képeket is betehetsz -->
-    <img src="img/cimer.png" alt="Traktoros címer">
-    <img src="img/sor.png" alt="Teli söröskorsó">
-    <img src="img/hurka.png" alt="Májas hurka">
-</header>
+        <div class="title-box">
+            <h1>Szélesbálási<br>Kalaplengető Viadal</h1>
+            <div class="sub-title">~ A Faluház Dísztermében ~</div>
+            
+            <img src="hurka.jpg" alt="Májas Hurka" class="center-img">
+        </div>
 
-<div id="container">
-    <h2>Aktuális eredménytábla</h2>
+        <div class="logo-box">
+            <img src="sör.jpg" alt="Teli Söröskorsó" class="side-img">
+        </div>
+    </header>
 
-    <!-- IDE kerül majd a generált HTML táblázat -->
-    <div id="eredmenyek">
-        <table>
-            <tr>
-                <th>Versenyző neve</th>
-                <th>1. lengetés</th>
-                <th>2. lengetés</th>
-                <th>3. lengetés</th>
-                <th>Legjobb pont</th>
-                <th>Helyezés</th>
-            </tr>
+    <main>
+        <div style="text-align:center; margin-bottom: 20px; font-style:italic; color:#5d4037;">
+            "Aki a gyertyát a leggyorsabban eloltja, annak torka nem marad szárazon!"
+        </div>
 
-            <!-- Mintaadatok – ezeket majd a program tölti -->
-            <tr>
-                <td>Kovács János</td>
-                <td>9</td>
-                <td>8</td>
-                <td>10</td>
-                <td>10</td>
-                <td>1.</td>
-            </tr>
-            <tr>
-                <td>Nagy Béla</td>
-                <td>10</td>
-                <td>6</td>
-                <td>7</td>
-                <td>10</td>
-                <td>2.</td>
-            </tr>
-            <tr>
-                <td>Szabó Erika</td>
-                <td>8</td>
-                <td>8</td>
-                <td>9</td>
-                <td>9</td>
-                <td>3.</td>
-            </tr>
-        </table>
-    </div>
+        <div id="eredmeny-tablazat">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="8%">Hely</th>
+                        <th>A Vitéz Neve</th>
+                        <th>I. Kör</th>
+                        <th>II. Kör</th>
+                        <th>III. Kör</th>
+                        <th>Legjobb</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><div class="rank-badge" style="background:#ffd700; border: 2px solid #b8860b;">1.</div></td>
+                        <td>Horváth Gábor</td>
+                        <td>8 p <span class="idoadat">(2.12 mp)</span></td>
+                        <td><span class="pontszam">10 p</span> <span class="idoadat">(0.85 mp)</span></td>
+                        <td>9 p <span class="idoadat">(1.10 mp)</span></td>
+                        <td><span class="pontszam">10 pont</span> <span class="idoadat">(0.85 mp)</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><div class="rank-badge" style="background:#c0c0c0; border: 2px solid #7f8c8d;">2.</div></td>
+                        <td>Kovács Bence</td>
+                        <td><span class="pontszam">10 p</span> <span class="idoadat">(0.98 mp)</span></td>
+                        <td>7 p <span class="idoadat">(3.50 mp)</span></td>
+                        <td>8 p <span class="idoadat">(2.10 mp)</span></td>
+                        <td><span class="pontszam">10 pont</span> <span class="idoadat">(0.98 mp)</span></td>
+                    </tr>
 
-</div>
+                    <tr>
+                        <td><div class="rank-badge" style="background:#cd7f32; border: 2px solid #a0522d;">3.</div></td>
+                        <td>Nagy Ádám</td>
+                        <td>0 p <span class="idoadat">(10+ mp)</span></td>
+                        <td><span class="pontszam">9 p</span> <span class="idoadat">(1.20 mp)</span></td>
+                        <td>5 p <span class="idoadat">(5.40 mp)</span></td>
+                        <td><span class="pontszam">9 pont</span> <span class="idoadat">(1.20 mp)</span></td>
+                    </tr>
 
-<footer>
-    Szélesbálás, Arató utca 321 — Fedettpályás Kalaplengető Verseny
-</footer>
+                    <tr>
+                        <td>4.</td>
+                        <td>Szabó Dóra</td>
+                        <td>6 p <span class="idoadat">(4.10 mp)</span></td>
+                        <td>6 p <span class="idoadat">(4.05 mp)</span></td>
+                        <td><span class="pontszam">7 p</span> <span class="idoadat">(3.80 mp)</span></td>
+                        <td><span class="pontszam">7 pont</span> <span class="idoadat">(3.80 mp)</span></td>
+                    </tr>
+                     
+                    <tr>
+                        <td>5.</td>
+                        <td>Tóth Csaba</td>
+                        <td><span class="pontszam">4 p</span> <span class="idoadat">(6.10 mp)</span></td>
+                        <td>0 p <span class="idoadat">(10+ mp)</span></td>
+                        <td>2 p <span class="idoadat">(8.20 mp)</span></td>
+                        <td><span class="pontszam">4 pont</span> <span class="idoadat">(6.10 mp)</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>6.</td>
+                        <td>Varga Ede</td>
+                        <td>0 p <span class="idoadat">(10+ mp)</span></td>
+                        <td>0 p <span class="idoadat">(10+ mp)</span></td>
+                        <td><span class="pontszam">1 p</span> <span class="idoadat">(9.90 mp)</span></td>
+                        <td><span class="pontszam">1 pont</span> <span class="idoadat">(9.90 mp)</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <p>A hiteles időmérést a <strong>Falu Jegyzőjének Okosórája</strong> szavatolja.</p>
+        <p style="font-size: 0.9em; opacity: 0.7;">Rendszergazda: Géza Gyerek (Arató utca 321.) | 2025 &copy; Szélesbálás</p>
+    </footer>
 
 </body>
 </html>
