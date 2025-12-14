@@ -45,17 +45,19 @@ CREATE TABLE `versenyzok` (
 -- A tábla adatainak kiíratása `versenyzok`
 --
 
-INSERT INTO `versenyzok` (`id`, `nev`, `lengetes1`, `ido1`, `lengetes2`, `ido2`, `lengetes3`, `ido3`, `legjobb_pont`, `legjobb_ido`, `pilla_hely`) VALUES
-(1, 'Nagy Ádám', 15, 6.25, 18, 6.1, 16, 6.15, 18, 6.1, 1),
-(2, 'Kovács Bence', 14, 7.01, 15, 6.88, 14, 6.95, 15, 6.88, 2),
-(3, 'Tóth Csaba', 19, 5.5, 20, 5.42, 18, 5.6, 20, 5.42, 3),
-(4, 'Szabó Dóra', 10, 8.12, 11, 7.99, 10, 8.05, 11, 7.99, 4),
-(5, 'Varga Ede', 17, 5.95, 16, 6.02, 17, 5.9, 17, 5.9, 5),
-(6, 'Kiss Fanni', 13, 7.5, 14, 7.45, 12, 7.6, 14, 7.45, 6),
-(7, 'Horváth Gábor', 20, 5.3, 21, 5.25, 20, 5.35, 21, 5.25, 7),
-(8, 'Lakatos Hédi', 15, 6.7, 15, 6.65, 16, 6.55, 16, 6.55, 8),
-(9, 'Molnár István', 11, 7.8, 12, 7.75, 13, 7.7, 13, 7.7, 9),
-(10, 'Juhász Júlia', 16, 6.35, 17, 6.3, 16, 6.4, 17, 6.3, 10);
+INSERT INTO `versenyzok` 
+(`id`, `nev`, `lengetes1`, `ido1`, `lengetes2`, `ido2`, `lengetes3`, `ido3`, `legjobb_pont`, `legjobb_ido`, `pilla_hely`) 
+VALUES
+(1, 'Kiss Fanni', 10, 0.0, 9, 1.0, 8, 2.0, 10, 0.0, 1),
+(2, 'Juhász Júlia', 9, 1.0, 8, 2.0, 8, 2.0, 9, 1.0, 2),
+(3, 'Kovács Bence', 9, 1.0, 8, 2.0, 7, 3.0, 9, 1.0, 3),
+(4, 'Szabó Dóra', 8, 2.0, 7, 3.0, 6, 4.0, 8, 2.0, 4),
+(5, 'Nagy Ádám', 8, 2.0, 7, 3.0, 6, 4.0, 8, 2.0, 5),
+(6, 'Lakatos Hédi', 8, 2.0, 7, 3.0, 6, 4.0, 8, 2.0, 6),
+(7, 'Tóth Csaba', 7, 3.0, 6, 4.0, 5, 5.0, 7, 3.0, 7),
+(8, 'Varga Ede', 7, 3.0, 6, 4.0, 5, 5.0, 7, 3.0, 8),
+(9, 'Molnár István', 6, 4.0, 6, 4.0, 5, 5.0, 6, 4.0, 9),
+(10, 'Horváth Gábor', 6, 4.0, 5, 5.0, 4, 6.0, 6, 4.0, 10);
 
 --
 -- Indexek a kiírt táblákhoz
