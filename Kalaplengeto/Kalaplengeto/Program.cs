@@ -37,9 +37,7 @@ namespace KalaplengetoDB
                     );
                 versenyzok.Add(v);
             }
-
-            foreach (var v in versenyzok)
-                Console.WriteLine($"{v.Id} - {v.Nev} - {v.Lengetes1} - {v.Ido1} - {v.Lengetes2} - {v.Ido2} - {v.Lengetes3} - {v.Ido3} - {v.Legjobb_pont} - {v.Legjobb_ido} - {v.Pilla_hely}");
+            connection.Close();
             #endregion
 
             Console.Clear();
@@ -70,10 +68,32 @@ namespace KalaplengetoDB
                 Legjobb_ido = legjobbido(ido1, ido2, ido3),
             };
             versenyzok.Add(ujversenyzo);
-            ujversenyzo.Pilla_hely = helyezes(ujversenyzo, versenyzok);
 
             lengetespontfix(versenyzok);
-            pillahelymegváltoztatas(ujversenyzo, versenyzok);
+            pillahelymegváltoztatas(versenyzok);
+
+            connection.Open();
+            string sql1 = @"INSERT INTO versenyzok (id, nev, lengetes1, ido1, lengetes2, ido2, lengetes3, ido3, legjobb_pont, legjobb_ido, pilla_hely) VALUES (@id, @nev, @lengetes1, @ido1, @lengetes2, @ido2, @lengetes3, @ido3, @legjobb_pont, @legjobb_ido, @pilla_hely);";
+            string visszaalit = "TRUNCATE TABLE versenyzok;";
+            MySqlCommand vissza = new MySqlCommand(visszaalit, connection);
+            vissza.ExecuteNonQuery();
+            foreach (var v in versenyzok)
+            {
+                MySqlCommand feltöltes = new MySqlCommand(sql1, connection);
+                feltöltes.Parameters.AddWithValue("@id", v.Id);
+                feltöltes.Parameters.AddWithValue("@nev", v.Nev);
+                feltöltes.Parameters.AddWithValue("@lengetes1", v.Lengetes1);
+                feltöltes.Parameters.AddWithValue("@ido1", v.Ido1);
+                feltöltes.Parameters.AddWithValue("@lengetes2", v.Lengetes2);
+                feltöltes.Parameters.AddWithValue("@ido2", v.Ido2);
+                feltöltes.Parameters.AddWithValue("@lengetes3", v.Lengetes3);
+                feltöltes.Parameters.AddWithValue("@ido3", v.Ido3);
+                feltöltes.Parameters.AddWithValue("@legjobb_pont", v.Legjobb_pont);
+                feltöltes.Parameters.AddWithValue("@legjobb_ido", v.Legjobb_ido);
+                feltöltes.Parameters.AddWithValue("@pilla_hely", v.Pilla_hely);
+                feltöltes.ExecuteNonQuery();
+            }
+            connection.Close();
 
             foreach (var v in versenyzok)
             {
@@ -135,6 +155,12 @@ namespace KalaplengetoDB
                     {
                         helyezese++;
                     }
+                    else if (v.Legjobb_pont == ujversenyzo.Legjobb_pont &&
+                             v.Legjobb_ido == ujversenyzo.Legjobb_ido &&
+                             v.Id < ujversenyzo.Id) // <- Ha a régi ID kisebb, akkor a régi a jobb
+                    {
+                        helyezese++;
+                    }
                 }
             }
             return helyezese;
@@ -151,7 +177,7 @@ namespace KalaplengetoDB
         /// <summary>
         /// Frissíti az összes versenyző pillanatnyi helyét a teljes listában.
         /// </summary>
-        static void pillahelymegváltoztatas(Versenyzo ujversenyzo, List<Versenyzo> versenyzok)
+        static void pillahelymegváltoztatas(List<Versenyzo> versenyzok)
         {
             foreach (var v in versenyzok)
             {
