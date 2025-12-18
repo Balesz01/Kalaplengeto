@@ -554,7 +554,7 @@ namespace KalaplengetoDB
                         helyezese++;
                     else if (v.Legjobb_pont == helyezesversenyzo.Legjobb_pont && v.Legjobb_ido < helyezesversenyzo.Legjobb_ido)
                         helyezese++;
-                    else if (v.Legjobb_pont == helyezesversenyzo.Legjobb_pont && v.Legjobb_ido == helyezesversenyzo.Legjobb_ido && Array.IndexOf(nevek, helyezesversenyzo.Nev) < Array.IndexOf(nevek, v.Nev))
+                    else if (v.Legjobb_pont == helyezesversenyzo.Legjobb_pont && v.Legjobb_ido == helyezesversenyzo.Legjobb_ido && Array.IndexOf(nevek, helyezesversenyzo.Nev) > Array.IndexOf(nevek, v.Nev))
                         helyezese++;
                 }
             }
